@@ -5,3 +5,6 @@ def test_sample():
 
 def test_sample_2():
     assert 2==2
+
+def test_sample_3():
+    assert 2==3
