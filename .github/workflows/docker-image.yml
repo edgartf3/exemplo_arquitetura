@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag edgartf3/exemplo-arquitetura:latest
+      run: docker build . --file dockerfile --tag edgartf3/exemplo-arquitetura:latest
