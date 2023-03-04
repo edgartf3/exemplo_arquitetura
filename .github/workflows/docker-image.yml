@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag edgartf3/exemplo-arquitetura:latest
 
-    - name: List images
-      run: docker images
+    - name: Push image
+      run: docker push edgartf3/exemplo-arquitetura:latest
