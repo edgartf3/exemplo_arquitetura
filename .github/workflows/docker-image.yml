@@ -17,8 +17,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag edgartf3/exemplo-arquitetura:latest
     
-    - name: Login to DockerHub
-    - uses: docker/login-action@v1 
+    - uses: docker/login-action@v1
+    - name: Login to DockerHub     
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
