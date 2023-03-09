@@ -1,0 +1,9 @@
+steps:  
+  - name: 'docker'
+    args: ['build', '-t', 'edgartf3/exemplo-arquitetura:latest', '-t', edgartf3/exemplo-arquitetura:$SHORT_SHA', '.']
+
+  # - name: 'docker'
+  #   args: ['push', 'edgartf3/exemplo-arquitetura:latest']
+
+  # - name: 'docker'
+  #   args: ['push', 'edgartf3/exemplo-arquitetura:$SHORT_SHA']
