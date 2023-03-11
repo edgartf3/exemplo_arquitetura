@@ -1,9 +1,21 @@
 steps:  
   - name: 'docker'
     args: ['build', '-t', 'edgartf3/exemplo-arquitetura:latest', '-t', 'edgartf3/exemplo-arquitetura:$SHORT_SHA', '.']
+  
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args: ['-c', 'docker login --username=$$USERNAME --password=$$PASSWORD']
+    secretEnv: ['USERNAME', 'PASSWORD']
 
   - name: 'docker'
     args: ['push', 'edgartf3/exemplo-arquitetura:latest']
 
   - name: 'docker'
     args: ['push', 'edgartf3/exemplo-arquitetura:$SHORT_SHA']
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/360880746501/secrets/docker-password/versions/1
+    env: 'PASSWORD'
+  - versionName: projects/360880746501/secrets/docker-user/versions/1
+    env: 'USERNAME'
