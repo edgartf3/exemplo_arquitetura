@@ -1,18 +1,17 @@
 FROM python:3.10.0-slim
 
-RUN useradd -ms /bin/bash python
-
+RUN python -m pip install --upgrade pip
 RUN pip install pipenv
+USER root
 
-USER python
-
-WORKDIR /home/python/app
+WORKDIR /app
 
 ENV PIPENV_VENV_IN_PROJECT=True
 
 COPY . .
 
 RUN pipenv install --system
+RUN pipenv shell --fancy
 
 EXPOSE 8000
 
