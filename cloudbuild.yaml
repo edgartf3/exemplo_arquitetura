@@ -19,6 +19,18 @@ steps:
   - name: 'docker'
     args: ['push', 'edgartf3/exemplo-arquitetura:$SHORT_SHA']
 
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: [
+      'set',
+      'image',
+      'deployment',
+      'exemploapp',
+      'exemploapp=edgartf3/exemplo-arquitetura:$SHORT_SHA'
+    ]
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=southamerica-east1'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
+
 availableSecrets:
   secretManager:
   - versionName: projects/360880746501/secrets/docker-password/versions/1
