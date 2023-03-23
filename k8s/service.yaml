@@ -5,9 +5,9 @@ metadata:
 spec:
   selector:
     app: exemploserver
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - name: exemploserver-service
-    port: 8000
-    protocol: TCP
+    port: 80    
     targetPort: 8000
+    protocol: TCP
