@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exemploserver
+  labels:
+    app: exemploserver
+spec:
+  selector:
+    matchLabels:
+      app: exemploserver
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: "exemploserver"
+    spec:
+      containers:
+        - name: exemploserver
+          image: edgartf3/exemplo-arquitetura:latest

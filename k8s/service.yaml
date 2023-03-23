@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: exemploserver-service
+spec:
+  selector:
+    app: exemploserver
+  type: LoadBalancer
+  ports:
+  - name: exemploserver-service
+    port: 80    
+    targetPort: 8000
+    protocol: TCP
